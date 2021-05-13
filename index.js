@@ -1,3 +1,4 @@
+require('./config/db');
 const express = require('express');
 const exphbs = require('express-handlebars')
 const router = require('./routes/index')
