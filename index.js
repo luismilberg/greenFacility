@@ -3,6 +3,7 @@ const express = require('express');
 const exphbs = require('express-handlebars')
 const router = require('./routes/index')
 const path = require('path');
+const bodyParser = require('body-parser');
 
 
 const app = express();
@@ -16,6 +17,10 @@ app.engine('handlebars',
     })
 );
 
+// Bodyparser
+app.use(bodyParser.urlencoded({ extended: false }));
+
+// View Engine
 app.set('view engine', 'handlebars');
 
 // Static Files
