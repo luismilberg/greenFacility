@@ -3,7 +3,7 @@ const DatosWeb = require('../models/DatosWeb');
 const Servicio = require('../models/Servicios');
 const Testimonios = require('../models/Testimonios');
 
-exports.home = async (req,res) => {
+exports.cargaDatosInicial = async(req, res)=> {
 
     const datosEmpresaSave = new DatosEmpresa({
         direccionCalle: 'Pasaje Prioni x',
@@ -16,7 +16,7 @@ exports.home = async (req,res) => {
         redesInstagram: 'https://www.instagram.com/green_facility/'
     });
 
-    // await datosEmpresaSave.save(); // Descomentar para hacer el save inicial en testing
+    await datosEmpresaSave.save(); // Descomentar para hacer el save inicial en testing
 
     const datosWebSave = new DatosWeb({
         queHacemos: 'Nos dedicamos a cortar el pasto pa',
@@ -27,7 +27,7 @@ exports.home = async (req,res) => {
         contactanos: '¡Envianos un mensaje y vamos a responderte a la mayor brevedad posible!'
     });
 
-    // await datosWebSave.save(); // Descomentar para hacer el save inicial en testing
+    await datosWebSave.save(); // Descomentar para hacer el save inicial en testing
 
     const serviciosSave = new Servicio({
         urlImagen: 'testUrlImagen.jpg',
@@ -35,15 +35,18 @@ exports.home = async (req,res) => {
         descripcion: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at.'
     });
 
-    // await serviciosSave.save(); // Descomentar para hacer el save inicial en testing
+    await serviciosSave.save(); // Descomentar para hacer el save inicial en testing
 
     const testimoniosSave = new Testimonios({
         testimonio:'Cumplieron nuestras expectativas, muy recomendables',
         responsable: 'Maxi Rodriguez, Newells Old Boys'
     });
 
-    // await testimoniosSave.save(); // Descomentar para hacer el save incial en testing
+    await testimoniosSave.save(); // Descomentar para hacer el save incial en testing
 
+}
+
+exports.home = async (req,res) => {
 
     // Consulta para los testimonios
     const testimonios = await Testimonios.find().lean();

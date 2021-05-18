@@ -8,6 +8,7 @@ const datosWeb = require('../controllers/datosWeb');
 
 module.exports = () => {
     router.get('/', homeController.home);
+    router.get('/cargar-datos', homeController.cargaDatosInicial);
 
     // Datos empresa
     router.get('/datos-empresa', datosEmpresa.formDatos);
