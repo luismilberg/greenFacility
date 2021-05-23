@@ -11,6 +11,27 @@
     <title>Green Facility</title>
   </head>
   <body>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Green Facility</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/menu">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/datos-empresa">Datos Empresa</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/datos-web">Datos WEB</a>
+                </li>
+            </ul>
+            </div>
+        </div>
+        </nav>
     <h1>Datos Web</h1>
 
 
@@ -25,36 +46,37 @@
                 <h3>Encabezado:</h3>
                 <div class="form-group">
                     <label for="exampleInputEmail1">¿Qué hacemos?</label>
-                    <input type="text" class="form-control" value="{{datosWeb.queHacemos}}" name="queHacemos" aria-describedby="emailHelp">
+                    <textarea class="form-control" name="queHacemos" cols="30" rows="2">{{datosWeb.queHacemos}} </textarea>
+                    
                 </div>
                 <div class="form-group">
                     <label for="exampleInputEmail1">¿Quiénes somos?</label>
-                    <input type="text" class="form-control" value="{{datosWeb.quienesSomos}}" name="quienesSomos" aria-describedby="emailHelp">
+                    <textarea class="form-control" name="quienesSomos" cols="30" rows="2">{{datosWeb.quienesSomos}}</textarea>
                 </div>
                 <div class="form-group">
                     <label for="exampleInputEmail1">Consulta gratis:</label>
-                    <input type="text" class="form-control" value="{{datosWeb.consultaGratis}}" name="consultaGratis" aria-describedby="emailHelp">
+                    <textarea name="consultaGratis"  cols="30" rows="2" class="form-control">{{datosWeb.consultaGratis}}</textarea>
                 </div>
                 <br>
 
                 <h3>Servicios:</h3>
                 <div class="form-group">
                     <label for="exampleInputEmail1">Nuestros Servicios:</label>
-                    <input type="text" class="form-control" value="{{datosWeb.nuestrosServicios}}" name="nuestrosServicios" aria-describedby="emailHelp">
+                    <textarea name="nuestrosServicios" cols="30" rows="2" class="form-control">{{datosWeb.nuestrosServicios}}</textarea>
                 </div>
                 <br>
 
                 <h3>Proyectos:</h3>
                 <div class="form-group">
                     <label for="exampleInputEmail1">Nuestros Proyectos:</label>
-                    <input type="text" class="form-control" value="{{datosWeb.galeriaProyectos}}" name="galeriaProyectos" aria-describedby="emailHelp">
+                    <textarea name="galeriaProyectos" cols="30" rows="2" class="form-control">{{datosWeb.galeriaProyectos}}</textarea>
                 </div>
                 <br>
 
                 <h3>Contactanos:</h3>
                 <div class="form-group">
                     <label for="exampleInputEmail1">Contactanos:</label>
-                    <input type="text" class="form-control" value="{{datosWeb.contactanos}}" name="contactanos" aria-describedby="emailHelp">
+                    <textarea name="contactanos" cols="30" rows="2" class="form-control">{{datosWeb.contactanos}}</textarea>
                 </div>
                 <br>
                 
