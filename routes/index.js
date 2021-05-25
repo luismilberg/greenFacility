@@ -29,12 +29,10 @@ module.exports = () => {
     router.post('/nueva-categoria', categoriasController.nuevaCategoria);
 
     // Menú
-    router.get('/menu', (req,res) => {
-        res.render('menu');
+    router.get('/back', (req,res) => {
+        res.render('backHome');
     });
-    router.post('/menu', (req,res) => {
-        console.log(req.body);
-    })
+    
 
     return router;
 }

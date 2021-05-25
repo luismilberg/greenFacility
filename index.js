@@ -23,6 +23,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // View Engine
 app.set('view engine', 'handlebars');
 
+
 // Static Files
 app.use(express.static(path.join(__dirname,'public')));
 
