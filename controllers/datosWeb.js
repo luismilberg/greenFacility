@@ -15,7 +15,7 @@ exports.guardarDatos = async (req, res) => {
 
     const datosQuery = await DatosWeb.find();
     const datosGuardados = datosQuery[0];
-   
+    
     const resultado = await DatosWeb.findByIdAndUpdate(datosGuardados._id, datosEmpresa);
     
     res.redirect('/datos-web');

@@ -16,3 +16,7 @@ exports.nuevaCategoria = async (req, res) => {
     
     res.redirect('/nueva-categoria');
 }
+
+exports.listadoCategorias = async(req, res) => {
+    res.render('categorias');
+}

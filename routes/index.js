@@ -7,6 +7,8 @@ const datosEmpresa = require('../controllers/datosEmpresa');
 const datosWeb = require('../controllers/datosWeb');
 const serviciosController = require('../controllers/serviciosController');
 const categoriasController = require('../controllers/categoriasController');
+const proyectosController = require('../controllers/proyectosController');
+const testimoniosController = require('../controllers/testimoniosController');
 
 module.exports = () => {
     router.get('/', homeController.home);
@@ -21,12 +23,20 @@ module.exports = () => {
     router.post('/datos-web', datosWeb.guardarDatos);
 
     // Servicios
+    router.get('/servicios', serviciosController.listadoServicios);
     router.get('/nuevo-servicio', serviciosController.formNuevoServicio);
     router.post('/nuevo-servicio', serviciosController.guardarServicio);
 
     // Categorias
     router.get('/nueva-categoria', categoriasController.formNuevaCategoria);
     router.post('/nueva-categoria', categoriasController.nuevaCategoria);
+    router.get('/categorias', categoriasController.listadoCategorias)
+
+    // Proyectos
+    router.get('/proyectos', proyectosController.listadoProyectos)
+
+    // Testimonios
+    router.get('/testimonios', testimoniosController.listadoTestimonios)
 
     // Menú
     router.get('/back', (req,res) => {
