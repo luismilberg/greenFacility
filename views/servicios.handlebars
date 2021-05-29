@@ -25,25 +25,16 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Cortado de cesped re loco</td>
-            <td><a href="/"><input type="button" value="Editar" class="btn btn-primary"></a></td>
-            <td><a href="/"><input type="button" value="Eliminar" class="btn btn-primary"></a></td>
-          </tr>
-          <tr>
-            <th scope="row">1</th>
-            <td>Cortado de cesped re en cualquiera</td>
-            <td><a href="/"><input type="button" value="Editar" class="btn btn-primary"></a></td>
-            <td><a href="/"><input type="button" value="Eliminar" class="btn btn-primary"></a></td>
-          </tr>
-          <tr>
-            <th scope="row">1</th>
-            <td>Cortado de cesped hasta las re manos</td>
-            <td><a href="/"><input type="button" value="Editar" class="btn btn-primary"></a></td>
-            <td><a href="/"><input type="button" value="Eliminar" class="btn btn-primary"></a></td>
-          </tr>
-
+          {{#if servicios.length}}
+            {{#each servicios}}
+              <tr>
+                <th scope="row">1</th>
+                <td>{{titulo}}</td>
+                <td><a href="/servicios/editar/{{_id}}"><input type="button" value="Editar" class="btn btn-primary"></a></td>
+                <td><a href="/servicios/borrar/{{_id}}"><input type="button" value="Eliminar" class="btn btn-primary"></a></td>
+              </tr>
+            {{/each}}
+          {{/if}}
         </tbody>
       </table>
         </div>

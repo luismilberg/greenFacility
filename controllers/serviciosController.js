@@ -18,7 +18,7 @@ exports.upload = multer({
 exports.listadoServicios = async (req, res, next) => {
   const servicios = await Servicios.find().lean();
   console.log(servicios);
-  res.render("servicios", servicios);
+  res.render("servicios", {servicios});
 };
 
 exports.formNuevoServicio = (req, res) => {
@@ -34,3 +34,24 @@ exports.guardarServicio = async (req, res) => {
   console.log("Servicio Guardado");
   res.redirect("/servicios");
 };
+
+// Editar Servicio
+exports.editarServicio = async (req, res) => {
+  const id = req.params.id;
+  const servicio = await Servicios.findById(id).lean();
+  res.render('formEditarServicio', servicio);
+}
+
+exports.guardarServicioEditado = async (req, res) => {
+  const servicio = req.body;
+  await Servicios.findByIdAndUpdate(servicio._id, servicio);
+  res.redirect('/servicios');
+}
+
+
+// Eliminar Servicio
+exports.borrarServicio = async (req, res) => {
+  const id = req.params.id;
+  await Servicios.findByIdAndDelete(id);
+  res.redirect('/servicios');
+}

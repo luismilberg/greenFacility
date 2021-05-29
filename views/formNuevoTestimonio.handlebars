@@ -1,0 +1,24 @@
+{{> head }}
+{{> menu}}
+<h1>Nuevo Testimonio:</h1>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <form action="/testimonios/nuevo" method="post">
+                <div class="form-group">
+                    <label>Testimonio:</label>
+                    <input type="text" name="testimonio" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label>Responsable:</label>
+                    <input type="text" name="responsable" class="form-control">
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Guardar" class="btn btn-primary">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{{> footer}}

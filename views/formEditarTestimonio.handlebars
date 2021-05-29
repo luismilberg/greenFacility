@@ -1,0 +1,25 @@
+{{> head }}
+{{> menu}}
+<h1>Editar Testimonio:</h1>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <form action="/testimonios/editar/{{_id}}" method="post">
+                <div class="form-group">
+                    <label>Testimonio:</label>
+                    <input type="text" name="testimonio" class="form-control" value="{{testimonio}}">
+                </div>
+                <div class="form-group">
+                    <label>Responsable:</label>
+                    <input type="text" name="responsable" class="form-control" value="{{responsable}}">
+                    <input type="hidden" name="_id" value="{{_id}}">
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Guardar" class="btn btn-primary">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{{> footer}}

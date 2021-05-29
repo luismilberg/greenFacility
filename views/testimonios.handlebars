@@ -10,7 +10,7 @@
     <div class="row">
         <div class="col-10"></div>
         <div class="col-2">
-            <a href="/nuevo-testimonio"><input type="submit" value="Nuevo Testimonio" class="btn btn-primary"></a>
+            <a href="/testimonios/nuevo"><input type="submit" value="Nuevo Testimonio" class="btn btn-primary"></a>
         </div>
     </div>
     <div class="row">
@@ -19,30 +19,23 @@
         <thead>
           <tr>
             <th scope="col" class="col-2">#</th>
-            <th scope="col" class="col-6">Categoría</th>
+            <th scope="col" class="col-6">Testimonio</th>
             <th scope="col" class="col-2">Editar</th>
             <th scope="col" class="col-2">Eliminar</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Cortado de cesped re loco</td>
-            <td><a href="/"><input type="button" value="Editar" class="btn btn-primary"></a></td>
-            <td><a href="/"><input type="button" value="Eliminar" class="btn btn-primary"></a></td>
-          </tr>
-          <tr>
-            <th scope="row">1</th>
-            <td>Cortado de cesped re en cualquiera</td>
-            <td><a href="/"><input type="button" value="Editar" class="btn btn-primary"></a></td>
-            <td><a href="/"><input type="button" value="Eliminar" class="btn btn-primary"></a></td>
-          </tr>
-          <tr>
-            <th scope="row">1</th>
-            <td>Cortado de cesped hasta las re manos</td>
-            <td><a href="/"><input type="button" value="Editar" class="btn btn-primary"></a></td>
-            <td><a href="/"><input type="button" value="Eliminar" class="btn btn-primary"></a></td>
-          </tr>
+          {{#if testimonios.length}}
+            {{#each testimonios}}
+              <tr>
+                <th scope="row">1</th>
+                <td>{{testimonio}}</td>
+                <td><a href="/testimonios/editar/{{_id}}"><input type="button" value="Editar" class="btn btn-primary"></a></td>
+                <td><a href="/testimonios/borrar/{{_id}}"><input type="button" value="Eliminar" class="btn btn-primary"></a></td>
+              </tr>
+            {{/each}}
+          {{/if}}
+
 
         </tbody>
       </table>

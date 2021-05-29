@@ -77,9 +77,8 @@
       <div class="container">
         <div class="row">
           <div class="col-md-8 col-md-offset-2 intro-text">
-            <h1 class="wow fadeInDown">Mantenimiento de Espacios Verdes</h1>
-            <p class="wow fadeInRight" data-wow-delay="600ms">Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br>
-              Duis sed dapibus leo nec ornare diam.</p>
+            <h1 class="wow fadeInDown">Green Facility</h1>
+            <p class="wow fadeInRight" data-wow-delay="600ms">Mantenimiento de Espacios Verdes</p>
             <a href="#about" class="btn btn-custom btn-lg page-scroll wow fadeInUp" data-wow-delay="1200ms">Más información</a> </div>
         </div>
       </div>
@@ -96,7 +95,9 @@
         <div class="about-text">
           <h2>¿Qué hacemos?</h2>
           <hr>
-          <p>{{ queHacemos }}</p>
+          {{#if queHacemos}}
+            <p>{{ queHacemos }}</p>
+          {{/if}}
           <a href="#services" class="btn btn-custom btn-lg page-scroll">Nuestos Servicios</a> </div>
       </div>
       <div class="col-xs-12 col-md-4 vcenter wow fadeInLeft"> <img src="img/about.jpg" class="img-responsive" alt=""> </div>

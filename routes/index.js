@@ -22,13 +22,7 @@ module.exports = () => {
     router.get('/datos-web', datosWeb.formDatos);
     router.post('/datos-web', datosWeb.guardarDatos);
 
-    // Servicios
-    router.get('/servicios', serviciosController.listadoServicios);
-    router.get('/nuevo-servicio', serviciosController.formNuevoServicio);
-    router.post('/nuevo-servicio', 
-        serviciosController.upload.single('urlImagen'),
-        serviciosController.guardarServicio);
-
+    
     // Categorias
     router.get('/nueva-categoria', categoriasController.formNuevaCategoria);
     router.post('/nueva-categoria', categoriasController.nuevaCategoria);
@@ -36,19 +30,35 @@ module.exports = () => {
     router.get('/categorias/borrar/:id', categoriasController.eliminarCategoria);
     router.get('/categorias/editar/:id', categoriasController.editarCategoria);
     router.post('/categorias/editar/:id', categoriasController.guardarCategoriaEditada);
-
+    
     // Proyectos
     router.get('/proyectos', proyectosController.listadoProyectos);
     router.get('/nuevo-proyecto', proyectosController.formNuevoProyecto);
     router.post('/nuevo-proyecto', 
-        proyectosController.upload.single('urlImagen'),
-        proyectosController.guardarProyecto);
+    proyectosController.upload.single('urlImagen'),
+    proyectosController.guardarProyecto);
     router.get('/proyectos/borrar/:id', proyectosController.borrarProyecto);
     router.get('/proyectos/editar/:id', proyectosController.editarProyecto);
     router.post('/proyectos/editar/:id', proyectosController.guardarProyectoEditado);
+    
+    // Servicios
+    router.get('/servicios', serviciosController.listadoServicios);
+    router.get('/nuevo-servicio', serviciosController.formNuevoServicio);
+    router.post('/nuevo-servicio', 
+        serviciosController.upload.single('urlImagen'),
+        serviciosController.guardarServicio);
+    router.get('/servicios/borrar/:id', serviciosController.borrarServicio);
+    router.get('/servicios/editar/:id', serviciosController.editarServicio);
+    router.post('/servicios/editar/:id', serviciosController.guardarServicioEditado);
+
 
     // Testimonios
-    router.get('/testimonios', testimoniosController.listadoTestimonios)
+    router.get('/testimonios', testimoniosController.listadoTestimonios);
+    router.get('/testimonios/nuevo', testimoniosController.formNuevoTestimonio);
+    router.post('/testimonios/nuevo', testimoniosController.guardarNuevoTestimonio);
+    router.get('/testimonios/borrar/:id', testimoniosController.borrarTestimonio);
+    router.get('/testimonios/editar/:id', testimoniosController.editarTestimonio);
+    router.post('/testimonios/editar/:id', testimoniosController.guardarTestimonioEditado);
 
     // Menú
     router.get('/back', (req,res) => {
