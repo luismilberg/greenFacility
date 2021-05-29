@@ -25,15 +25,27 @@ module.exports = () => {
     // Servicios
     router.get('/servicios', serviciosController.listadoServicios);
     router.get('/nuevo-servicio', serviciosController.formNuevoServicio);
-    router.post('/nuevo-servicio', serviciosController.guardarServicio);
+    router.post('/nuevo-servicio', 
+        serviciosController.upload.single('urlImagen'),
+        serviciosController.guardarServicio);
 
     // Categorias
     router.get('/nueva-categoria', categoriasController.formNuevaCategoria);
     router.post('/nueva-categoria', categoriasController.nuevaCategoria);
     router.get('/categorias', categoriasController.listadoCategorias)
+    router.get('/categorias/borrar/:id', categoriasController.eliminarCategoria);
+    router.get('/categorias/editar/:id', categoriasController.editarCategoria);
+    router.post('/categorias/editar/:id', categoriasController.guardarCategoriaEditada);
 
     // Proyectos
-    router.get('/proyectos', proyectosController.listadoProyectos)
+    router.get('/proyectos', proyectosController.listadoProyectos);
+    router.get('/nuevo-proyecto', proyectosController.formNuevoProyecto);
+    router.post('/nuevo-proyecto', 
+        proyectosController.upload.single('urlImagen'),
+        proyectosController.guardarProyecto);
+    router.get('/proyectos/borrar/:id', proyectosController.borrarProyecto);
+    router.get('/proyectos/editar/:id', proyectosController.editarProyecto);
+    router.post('/proyectos/editar/:id', proyectosController.guardarProyectoEditado);
 
     // Testimonios
     router.get('/testimonios', testimoniosController.listadoTestimonios)

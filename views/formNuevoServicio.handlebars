@@ -1,29 +1,28 @@
 {{> head }}
+{{> menu}}
 
-            {{> menu}}
-
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                    <form action="/nuevo-servicio" method="post">
-                        <div class="form-group">
-                            <label>Título:</label>
-                            <input type="text" name="titulo" id="" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label>Descripción:</label>
-                            <textarea name="descripcion" cols="30" rows="2" class="form-control"></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label>Imagen:</label>
-                            <input type="file" name="urlImagen" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <input type="submit" value="GUARDAR" class="btn btn-primary">
-                        </div>
-                    </form>
-                </div>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <form action="/nuevo-servicio" method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label>Título:</label>
+                        <input type="text" name="titulo" id="" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label>Descripción:</label>
+                        <textarea name="descripcion" cols="30" rows="2" class="form-control"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Imagen:</label>
+                        <input type="file" name="urlImagen" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="GUARDAR" class="btn btn-primary">
+                    </div>
+                </form>
             </div>
         </div>
+    </div>
             
 {{> footer }}

@@ -14,9 +14,31 @@ exports.nuevaCategoria = async (req, res) => {
 
     console.log('Categoria Guardada');
     
-    res.redirect('/nueva-categoria');
+    res.redirect('/categorias');
 }
 
 exports.listadoCategorias = async(req, res) => {
-    res.render('categorias');
+    const categorias = await Categorias.find().lean();
+    res.render('categorias', {categorias});
+}
+
+exports.editarCategoria = async (req, res) => {
+    const id = req.params.id;
+
+    const categoria = await Categorias.findById(id).lean();
+
+    res.render('formEditarCategoria', categoria);
+}
+
+exports.guardarCategoriaEditada = async (req, res) => {
+    const categoria = req.body;
+    const resultado = await Categorias.findByIdAndUpdate(categoria._id, categoria);
+
+    res.redirect('/categorias');
+}
+
+exports.eliminarCategoria = async (req, res) => {
+    const id = req.params.id;
+    await Categorias.findByIdAndDelete(id);
+    res.redirect('/categorias');
 }

@@ -2,6 +2,8 @@ const DatosEmpresa = require('../models/DatosEmpresa');
 const DatosWeb = require('../models/DatosWeb');
 const Servicio = require('../models/Servicios');
 const Testimonios = require('../models/Testimonios');
+const Proyectos = require('../models/Proyectos');
+const Categoria = require('../models/Categoria');
 
 exports.cargaDatosInicial = async(req, res)=> {
 
@@ -61,9 +63,17 @@ exports.home = async (req,res) => {
     // Consulta para los datos de la web
     const datosWebQuery = await DatosWeb.find();
     const datosWeb = datosWebQuery[0];
+
+    // Proyectos
+    const proyectos = await Proyectos.find().lean();
+
+    // Categorias
+    const categorias = await Categoria.find().lean();
  
 
     info = {
+        proyectos,
+        categorias,
         queHacemos: datosWeb.queHacemos,
         quienesSomos: datosWeb.quienesSomos,
         consultaGratis: datosWeb.consultaGratis,
