@@ -9,6 +9,7 @@ const serviciosController = require('../controllers/serviciosController');
 const categoriasController = require('../controllers/categoriasController');
 const proyectosController = require('../controllers/proyectosController');
 const testimoniosController = require('../controllers/testimoniosController');
+const mailerController = require('../controllers/mailerController');
 
 module.exports = () => {
     router.get('/', homeController.home);
@@ -64,6 +65,9 @@ module.exports = () => {
     router.get('/back', (req,res) => {
         res.render('backHome');
     });
+
+    // Mailer
+    router.post('/sendMail', mailerController.sendMail);
     
 
     return router;
