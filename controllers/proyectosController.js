@@ -6,7 +6,7 @@ const path = require('path');
 
 let storage = multer.diskStorage({
     destination: function(req, file, cb) {
-        cb(null, path.join(__dirname,'public/img/portfolio'));
+        cb(null, path.join(__dirname,'../public/img/portfolio'));
      },
     filename: function (req, file, cb) {
         cb(null , file.originalname);
@@ -14,7 +14,7 @@ let storage = multer.diskStorage({
 });
 
 exports.upload = multer({
-    dest: path.join(__dirname,'public/img/portfolio'),
+    dest: path.join(__dirname,'../public/img/portfolio'),
     storage
 });
 
