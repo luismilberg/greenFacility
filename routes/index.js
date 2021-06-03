@@ -13,7 +13,7 @@ const mailerController = require('../controllers/mailerController');
 
 module.exports = () => {
     router.get('/', homeController.home);
-    router.get('/cargar-datos', homeController.cargaDatosInicial);
+    // router.get('/cargar-datos', homeController.cargaDatosInicial); // descomentar para cargar datos iniciales de test
 
     // Datos empresa
     router.get('/datos-empresa', datosEmpresa.formDatos);

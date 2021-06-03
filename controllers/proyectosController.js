@@ -47,7 +47,7 @@ exports.guardarProyecto = async (req,res) => {
 exports.borrarProyecto = async (req,res) => {
     const id = req.params.id;
     console.log(id);
-    await Proyectos.findOneAndDelete(id);
+    await Proyectos.findByIdAndDelete(id);
     res.redirect('/proyectos');
 }
 
