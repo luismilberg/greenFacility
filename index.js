@@ -1,3 +1,6 @@
+require('dotenv').config({
+    path: 'variables.env'
+});
 require('./config/db');
 const express = require('express');
 const exphbs = require('express-handlebars')
@@ -30,4 +33,8 @@ app.use(express.static(path.join(__dirname,'public')));
 // Router
 app.use('/', router());
 
-app.listen(3000);
+const puerto = process.env.PORT;
+
+app.listen(puerto, () => {
+    console.log(`Aplicación corriendo en el puerto: ${puerto}`);
+});
