@@ -1,6 +1,7 @@
 const Categorias = require('../models/Categoria');
 const shortid = require('shortid');
 
+
 exports.formNuevaCategoria = (req, res) => {
     res.render('formNuevaCategoria');
 }

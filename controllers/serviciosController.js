@@ -1,9 +1,10 @@
 const Servicios = require("../models/Servicios");
 const multer = require("multer");
+const path = require("path");
 
 let storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, "public/img/services");
+    cb(null, path.join(__dirname,"public/img/services"));
   },
   filename: function (req, file, cb) {
     cb(null, file.originalname);
@@ -11,7 +12,7 @@ let storage = multer.diskStorage({
 });
 
 exports.upload = multer({
-  dest: "public/img/services",
+  dest: path.join(__dirname,"public/img/services"),
   storage,
 });
 

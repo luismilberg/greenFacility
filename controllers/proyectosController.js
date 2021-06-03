@@ -2,9 +2,11 @@ const multer = require('multer');
 const Proyectos = require('../models/Proyectos');
 const Categoria = require('../models/Categoria');
 
+const path = require('path');
+
 let storage = multer.diskStorage({
     destination: function(req, file, cb) {
-        cb(null, 'public/img/portfolio');
+        cb(null, path.join(__dirname,'public/img/portfolio'));
      },
     filename: function (req, file, cb) {
         cb(null , file.originalname);
@@ -12,7 +14,7 @@ let storage = multer.diskStorage({
 });
 
 exports.upload = multer({
-    dest: 'public/img/portfolio',
+    dest: path.join(__dirname,'public/img/portfolio'),
     storage
 });
 

@@ -30,4 +30,4 @@ app.use(express.static(path.join(__dirname,'public')));
 // Router
 app.use('/', router());
 
-app.listen(process.env.PORT);
+app.listen(3000);
