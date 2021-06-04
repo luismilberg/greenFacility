@@ -15,8 +15,7 @@ const usuariosController = require('../controllers/usuariosControllers');
 
 module.exports = () => {
     router.get('/', homeController.home);
-    // router.get('/cargar-datos', homeController.cargaDatosInicial); // descomentar para cargar datos iniciales de test
-
+    
     // Datos empresa
     router.get('/datos-empresa', datosEmpresa.formDatos);
     router.post('/datos-empresa', datosEmpresa.guardarDatos);

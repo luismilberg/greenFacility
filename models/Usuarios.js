@@ -1,6 +1,6 @@
-const { Schema, model, Promise } = require('mongoose');
+const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
-// Promise = global.Promise;
+
 
 const usuariosSchema = new Schema({
     email: String,
