@@ -1,4 +1,4 @@
-const Usuarios = require('../models/Usuarios');
+const Usuarios = require('../../models/Usuarios');
 
 exports.listadoUsuarios = async (req, res) => {
     const usuarios = await Usuarios.find().lean();

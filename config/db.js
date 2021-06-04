@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
-// const uri = `mongodb+srv://web:Ywf5AezeeIey7DxA@cluster0.wuqka.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
-const uri = process.env.DB;
+const uri = `mongodb+srv://${process.env.DBUSER}:${process.env.DBPASS}@cluster0.wuqka.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
 const db = mongoose.connection;
 
 mongoose.connect(uri, {

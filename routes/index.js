@@ -2,20 +2,20 @@ const express = require('express');
 const router = express.Router();
 
 // Controladores
-const homeController = require('../controllers/homeController');
-const datosEmpresa = require('../controllers/datosEmpresa');
-const datosWeb = require('../controllers/datosWeb');
-const serviciosController = require('../controllers/serviciosController');
-const categoriasController = require('../controllers/categoriasController');
-const proyectosController = require('../controllers/proyectosController');
-const testimoniosController = require('../controllers/testimoniosController');
-const mailerController = require('../controllers/mailerController');
-const usuariosController = require('../controllers/usuariosControllers');
+const homeController = require('../config/controllers/homeController');
+const datosEmpresa = require('../config/controllers/datosEmpresa');
+const datosWeb = require('../config/controllers/datosWeb');
+const serviciosController = require('../config/controllers/serviciosController');
+const categoriasController = require('../config/controllers/categoriasController');
+const proyectosController = require('../config/controllers/proyectosController');
+const testimoniosController = require('../config/controllers/testimoniosController');
+const mailerController = require('../config/controllers/mailerController');
+const usuariosController = require('../config/controllers/usuariosControllers');
 
 
 module.exports = () => {
     router.get('/', homeController.home);
-    
+
     // Datos empresa
     router.get('/datos-empresa', datosEmpresa.formDatos);
     router.post('/datos-empresa', datosEmpresa.guardarDatos);
