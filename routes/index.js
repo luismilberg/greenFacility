@@ -11,9 +11,7 @@ const proyectosController = require('../controllers/proyectosController');
 const testimoniosController = require('../controllers/testimoniosController');
 const mailerController = require('../controllers/mailerController');
 const usuariosController = require('../controllers/usuariosControllers');
-// const authController = require('../controllers/authController');
 
-const passport = require('../config/passport');
 
 module.exports = () => {
     router.get('/', homeController.home);
@@ -67,8 +65,6 @@ module.exports = () => {
 
     // Menú
     router.get('/back',
-        // authController.verificarUsuario,
-        // authController.mostrarBack
         (req, res) => {
             res.render('backHome')
         }
@@ -85,12 +81,7 @@ module.exports = () => {
     router.get('/usuarios/editar/:id', usuariosController.editarUsuario);
     router.post('/usuarios/editar/:id', usuariosController.guardarUsuarioEditado);
 
-    // Manejo de la sesión
-    // router.get('/login', usuariosController.formIniciarSesion);
-    // router.post('/login', passport.authenticate('local'));
-    // router.get('cerrarSesion', 
-    //     authController.verificarUsuario, 
-    //     authController.cerrarSesion);
+
 
     return router;
 }
