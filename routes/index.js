@@ -10,6 +10,10 @@ const categoriasController = require('../controllers/categoriasController');
 const proyectosController = require('../controllers/proyectosController');
 const testimoniosController = require('../controllers/testimoniosController');
 const mailerController = require('../controllers/mailerController');
+const usuariosController = require('../controllers/usuariosControllers');
+// const authController = require('../controllers/authController');
+
+const passport = require('../config/passport');
 
 module.exports = () => {
     router.get('/', homeController.home);
@@ -36,8 +40,8 @@ module.exports = () => {
     router.get('/proyectos', proyectosController.listadoProyectos);
     router.get('/nuevo-proyecto', proyectosController.formNuevoProyecto);
     router.post('/nuevo-proyecto', 
-    proyectosController.upload.single('urlImagen'),
-    proyectosController.guardarProyecto);
+        proyectosController.upload.single('urlImagen'),
+        proyectosController.guardarProyecto);
     router.get('/proyectos/borrar/:id', proyectosController.borrarProyecto);
     router.get('/proyectos/editar/:id', proyectosController.editarProyecto);
     router.post('/proyectos/editar/:id', proyectosController.guardarProyectoEditado);
@@ -62,13 +66,31 @@ module.exports = () => {
     router.post('/testimonios/editar/:id', testimoniosController.guardarTestimonioEditado);
 
     // Menú
-    router.get('/back', (req,res) => {
-        res.render('backHome');
-    });
+    router.get('/back',
+        // authController.verificarUsuario,
+        // authController.mostrarBack
+        (req, res) => {
+            res.render('backHome')
+        }
+    );
 
     // Mailer
     router.post('/sendMail', mailerController.sendMail);
     
+    // Usuarios
+    router.get('/usuarios', usuariosController.listadoUsuarios);
+    router.get('/usuarios/nuevo', usuariosController.formNuevoUsuario);
+    router.post('/usuarios/nuevo', usuariosController.guardarNuevoUsuario);
+    router.get('/usuarios/borrar/:id', usuariosController.borrarUsuario);
+    router.get('/usuarios/editar/:id', usuariosController.editarUsuario);
+    router.post('/usuarios/editar/:id', usuariosController.guardarUsuarioEditado);
+
+    // Manejo de la sesión
+    // router.get('/login', usuariosController.formIniciarSesion);
+    // router.post('/login', passport.authenticate('local'));
+    // router.get('cerrarSesion', 
+    //     authController.verificarUsuario, 
+    //     authController.cerrarSesion);
 
     return router;
 }

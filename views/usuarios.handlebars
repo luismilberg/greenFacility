@@ -1,0 +1,47 @@
+{{> head }}
+{{> menu }}
+
+<div class="row">
+    <div class="col">
+        <h1>Usuarios:</h1>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-10"></div>
+        <div class="col-2">
+            <a href="/usuarios/nuevo"><input type="submit" value="Nuevo Usuario" class="btn btn-primary"></a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <table class="table">
+        <thead>
+          <tr>
+            <th scope="col" class="col-2">#</th>
+            <th scope="col" class="col-6">Usuario</th>
+            <th scope="col" class="col-2">Editar</th>
+            <th scope="col" class="col-2">Eliminar</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#if usuarios.length}}
+            {{#each usuarios}}
+              <tr>
+                <th scope="row">1</th>
+                <td>{{nombre}}</td>
+                <td><a href="/usuarios/editar/{{_id}}"><input type="button" value="Editar" class="btn btn-primary"></a></td>
+                <td><a href="/usuarios/borrar/{{_id}}"><input type="button" value="Eliminar" class="btn btn-primary"></a></td>
+              </tr>
+            {{/each}}
+          {{/if}}
+
+
+        </tbody>
+      </table>
+        </div>
+    </div>
+</div>
+
+
+{{> footer}}
