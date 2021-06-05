@@ -26,7 +26,7 @@ usuariosSchema.pre('save', async function (next){
 
 // Autenticar usuarios para el login
 usuariosSchema.methods = {
-    compararPassword: function(password) {
+    compararPassword: function(password ){
         return bcrypt.compareSync(password. this.password);
     }
 }
