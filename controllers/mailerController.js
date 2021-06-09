@@ -22,7 +22,7 @@ let transporter = nodemailer.createTransport({
 
     const info = await transporter.sendMail({
       from: '"Consulta Web" <contacto@greenfacility.com.ar>',
-      to: 'contacto@greenfacility.com',
+      to: 'contacto@greenfacility.com.ar',
       subject: 'Consulta generada en la web',
       text: 'Texto de la consulta',
       html
