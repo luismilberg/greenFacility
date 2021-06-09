@@ -368,6 +368,9 @@ ol.type li a:hover {
 .portfolio-item .hover-bg {
 	overflow: hidden;
 	position: relative;
+	height: 30vh;
+	object-fit: contain;
+	object-position: 50% 50%;
 }
 .hover-bg .hover-text {
 	position: absolute;
@@ -573,4 +576,23 @@ color: #777;
 }
 .imagenBanner{
 	width: 50vw;
+}
+.float, .float:hover {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 10px;
+    right: 20px;
+    background-color: #28c76f;
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 2px 2px 3px #999;
+    z-index: 100;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
 }

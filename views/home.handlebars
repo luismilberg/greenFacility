@@ -32,6 +32,8 @@
 <link rel="stylesheet" type="text/css" href="css/nivo-lightbox/nivo-lightbox.css">
 <link rel="stylesheet" type="text/css" href="css/nivo-lightbox/default.css">
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
 
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -45,6 +47,9 @@
 <div id="preloader">
   <div id="status"> <img src="img/logochico.png"  alt=""> </div>
 </div>
+<a class="float" href="https://api.whatsapp.com/send?phone={{ datosEmpresa.infoContacto.telefono }}&text=Hola,%20quiero%20información" target="blank">
+    <i class="fab fa-whatsapp my-float"></i>
+</a>
 
 <!-- Navigation
     ==========================================-->
@@ -53,7 +58,7 @@
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-      <a class="navbar-brand page-scroll" href="#page-top"> Green Facility</a> </div>
+      <a class="navbar-brand page-scroll" href="#page-top">Green Facility</a> </div>
     
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -305,8 +310,8 @@
     <div class="col-md-8 col-md-offset-2 wow fadeInUp">
       <div class="social">
         <ul>
-          <li><a href="{{ datosEmpresa.redes.facebook }}"><i class="fa fa-facebook"></i></a></li>
-          <li><a href="{{ datosEmpresa.redes.instagram }}"><i class="fa fa-instagram"></i></a></a></li>
+          <li><a href="{{ datosEmpresa.redes.facebook }}"><i class="fab fa-facebook-f"></i></a></li>
+          <li><a href="{{ datosEmpresa.redes.instagram }}"><i class="fab fa-instagram"></i></i></a></a></li>
           {{!-- <li><a href="#"><i class="fa fa-linkedin"></i></a></li> --}}
         </ul>
       </div>
