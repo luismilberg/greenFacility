@@ -311,9 +311,18 @@ header .intro-text {
 ul.cat li {
 	display: inline-block;
 }
+
+
 ol.type li {
 	display: inline-block;
 	margin-left: 20px;
+}
+
+@media (max-width: 600px) {
+	ol.type li {
+		display: block;
+		margin: 20px;
+	}	
 }
 ol.type li a {
 	color: #555;
