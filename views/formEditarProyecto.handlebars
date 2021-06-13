@@ -4,13 +4,26 @@
     <div class="container">
         <div class="row">
             <div class="col">
-                <form action="/proyectos/editar/{{_id}}" method="post" >
+                <form action="/proyectos/editar/{{proyecto._id}}" method="post" >
                     <div class="form-group">
                         <label>Título:</label>
-                        <input type="text" name="titulo" class="form-control" value="{{titulo}}">
-                        <input type="hidden" name="_id" value="{{_id}}">
+                        <input type="text" name="titulo" class="form-control" value="{{proyecto.titulo}}">
+                        <input type="hidden" name="_id" value="{{proyecto._id}}">
                     </div>
+                    
+                    <div class="form-group">
+                        <label>Categorias:</label>
+                        <select class="form-select" name="categoriaClase" aria-label="Default select example">
 
+                            {{#if categoriasSelected.length}}
+                                {{#each categoriasSelected}}
+                                    <option value="{{clase}}" {{selected}}>{{titulo}}</option>
+                                {{/each}}
+                            {{/if}}
+
+                        </select>
+                    </div>
+                    
                     <div class="form-group">
                         <input type="submit" value="Guardar" class="btn btn-primary">
                     </div>

@@ -18,16 +18,34 @@ exports.upload = multer({
     storage
 });
 
+
+// Listado de proyectos
 exports.listadoProyectos = async (req, res) => {
-    const proyectos = await Proyectos.find().lean();
+    const proyectos = await Proyectos.find();
+    const categorias = await Categoria.find();
 
     console.log(proyectos);
+    console.log(categorias);
+
+    proyectosListado = proyectos.map( proy => {
+        const categoria = categorias.find( cat => {
+            return cat.clase === proy.categoriaClase;
+        });
+        const proyecto = {
+            _id: proy._id,
+            titulo: proy.titulo,       
+            categoriaClase: categoria.titulo
+        }
+        return proyecto;
+    });
     
     res.render('proyectos',{
-        proyectos
+        proyectosListado
     });
 }
 
+
+// Creación de proyectos
 exports.formNuevoProyecto = async (req,res) => {
     const categorias = await Categoria.find().lean();
     res.render('formNuevoProyecto',{
@@ -44,17 +62,41 @@ exports.guardarProyecto = async (req,res) => {
     res.redirect('/proyectos')
 }
 
+
+// Borrado de proyectos
 exports.borrarProyecto = async (req,res) => {
     const id = req.params.id;
-    console.log(id);
+    // console.log(id);
     await Proyectos.findByIdAndDelete(id);
     res.redirect('/proyectos');
 }
 
+
+// Edición de proyectos
 exports.editarProyecto = async (req, res) => {
     const id = req.params.id;
     const proyecto = await Proyectos.findById(id).lean();
-    res.render('formEditarProyecto',proyecto);
+    const categorias = await Categoria.find();
+
+    const categoriasSelected = categorias.map( cat => {
+        selected = cat.clase === proyecto.categoriaClase?'selected':'';
+
+        const categoria = {
+            _id: cat._id,
+            titulo: cat.titulo,
+            clase: cat.clase,
+            selected
+        }
+
+        return categoria;
+    });
+
+    console.log(categoriasSelected);
+
+    res.render('formEditarProyecto',{
+        proyecto,
+        categoriasSelected
+    });
 }
 
 exports.guardarProyectoEditado = async (req, res) => {
