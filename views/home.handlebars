@@ -202,31 +202,31 @@
 </div>
 
 
-<!-- Testimonials Section -->
-<div id="testimonials" class="text-center">
-  <div class="container">
-    <div class="section-title">
-      <h2 class="wow fadeInLeft">Testimonios</h2>
-      <hr>
-    </div>
-    <div class="row">
-      <div class="col-md-10 col-md-offset-1 wow fadeInRight"><i class="fa fa-quote-left"></i>
-        <div id="testimonial" class="owl-carousel owl-theme">
+{{#if testimonios.length}}
+  <!-- Testimonials Section -->
+  <div id="testimonials" class="text-center">
+    <div class="container">
+      <div class="section-title">
+        <h2 class="wow fadeInLeft">Testimonios</h2>
+        <hr>
+      </div>
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1 wow fadeInRight"><i class="fa fa-quote-left"></i>
+          <div id="testimonial" class="owl-carousel owl-theme">
 
-          {{#if testimonios.length}}
-            {{#each testimonios}}
-                <div class="item">
-                  <p>"{{testimonio}}"</p>
-                  <p>- {{responsable}}</p>
-                </div>
-            {{/each}}
-          {{/if}}
+              {{#each testimonios}}
+                  <div class="item">
+                    <p>"{{testimonio}}"</p>
+                    <p>- {{responsable}}</p>
+                  </div>
+              {{/each}}
 
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
+{{/if}}
 
 <!-- Quote Section -->
 <div id="quote-call" class="text-center">

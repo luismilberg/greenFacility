@@ -1,35 +1,39 @@
 {{> head }}
 {{> menu }}
 
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <form action="/proyectos/editar/{{proyecto._id}}" method="post" >
-                    <div class="form-group">
-                        <label>Título:</label>
-                        <input type="text" name="titulo" class="form-control" value="{{proyecto.titulo}}">
-                        <input type="hidden" name="_id" value="{{proyecto._id}}">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label>Categorias:</label>
-                        <select class="form-select" name="categoriaClase" aria-label="Default select example">
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <form action="/proyectos/editar/{{proyecto._id}}" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label>Título:</label>
+                    <input type="text" name="titulo" class="form-control" value="{{proyecto.titulo}}">
+                    <input type="hidden" name="_id" value="{{proyecto._id}}">
+                </div>
+                
+                <div class="form-group">
+                    <label>Categorias:</label>
+                    <select class="form-select" name="categoriaClase" aria-label="Default select example">
 
-                            {{#if categoriasSelected.length}}
-                                {{#each categoriasSelected}}
-                                    <option value="{{clase}}" {{selected}}>{{titulo}}</option>
-                                {{/each}}
-                            {{/if}}
+                        {{#if categoriasSelected.length}}
+                            {{#each categoriasSelected}}
+                                <option value="{{clase}}" {{selected}}>{{titulo}}</option>
+                            {{/each}}
+                        {{/if}}
 
-                        </select>
-                    </div>
-                    
-                    <div class="form-group">
-                        <input type="submit" value="Guardar" class="btn btn-primary">
-                    </div>
-                </form>
-            </div>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Imágen:</label>
+                    <img src="/img/portfolio/{{proyecto.urlImagen}}" class="col-3 d-block">
+                    <input type="file" name="urlImagen" class="form-control">
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Guardar" class="btn btn-primary">
+                </div>
+            </form>
         </div>
     </div>
+</div>
 
 {{> footer }}

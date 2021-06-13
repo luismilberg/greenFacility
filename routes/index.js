@@ -88,6 +88,7 @@ module.exports = () => {
 
     router.post('/proyectos/editar/:id', 
         authController.verificarUsuario, 
+        proyectosController.upload.single('urlImagen'),
         proyectosController.guardarProyectoEditado);
 
     
@@ -101,6 +102,7 @@ module.exports = () => {
         serviciosController.formNuevoServicio);
         
     router.post('/nuevo-servicio', 
+        authController.verificarUsuario,
         serviciosController.upload.single('urlImagen'),
         serviciosController.guardarServicio);
         
@@ -109,11 +111,12 @@ module.exports = () => {
         serviciosController.borrarServicio);
         
     router.get('/servicios/editar/:id', 
-        authController.verificarUsuario, 
+        // authController.verificarUsuario, 
         serviciosController.editarServicio);
         
     router.post('/servicios/editar/:id', 
-        authController.verificarUsuario, 
+        // authController.verificarUsuario, 
+        serviciosController.upload.single('urlImagen'),
         serviciosController.guardarServicioEditado);
 
 

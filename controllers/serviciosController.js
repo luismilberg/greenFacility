@@ -1,6 +1,7 @@
 const Servicios = require("../models/Servicios");
 const multer = require("multer");
 const path = require("path");
+const fs = require("fs");
 
 let storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -45,7 +46,19 @@ exports.editarServicio = async (req, res) => {
 
 exports.guardarServicioEditado = async (req, res) => {
   const servicio = req.body;
-  await Servicios.findByIdAndUpdate(servicio._id, servicio);
+  const servicioBd = await Servicios.findById(servicio._id);
+
+  servicioBd.titulo = servicio.titulo;
+  servicioBd.descripcion = servicio.descripcion;
+
+  if(req.file){
+    const pathBorrar = __dirname + `/../public/img/services/${servicioBd.urlImagen}`;
+    fs.unlink(pathBorrar, (err) => {if(err)console.log(err)});
+    servicioBd.urlImagen = req.file.filename;
+  }
+
+  await servicioBd.save();
+
   res.redirect('/servicios');
 }
 

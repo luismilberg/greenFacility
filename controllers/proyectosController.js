@@ -1,4 +1,5 @@
 const multer = require('multer');
+const fs = require('fs');
 const Proyectos = require('../models/Proyectos');
 const Categoria = require('../models/Categoria');
 
@@ -24,8 +25,6 @@ exports.listadoProyectos = async (req, res) => {
     const proyectos = await Proyectos.find();
     const categorias = await Categoria.find();
 
-    console.log(proyectos);
-    console.log(categorias);
 
     proyectosListado = proyectos.map( proy => {
         const categoria = categorias.find( cat => {
@@ -66,7 +65,6 @@ exports.guardarProyecto = async (req,res) => {
 // Borrado de proyectos
 exports.borrarProyecto = async (req,res) => {
     const id = req.params.id;
-    // console.log(id);
     await Proyectos.findByIdAndDelete(id);
     res.redirect('/proyectos');
 }
@@ -91,7 +89,6 @@ exports.editarProyecto = async (req, res) => {
         return categoria;
     });
 
-    console.log(categoriasSelected);
 
     res.render('formEditarProyecto',{
         proyecto,
@@ -101,7 +98,19 @@ exports.editarProyecto = async (req, res) => {
 
 exports.guardarProyectoEditado = async (req, res) => {
     const proyecto = req.body;
-    await Proyectos.findByIdAndUpdate(proyecto._id, proyecto);
+    const proyectoBd = await Proyectos.findById(proyecto._id);
+    
+    proyectoBd.titulo = proyecto.titulo;
+    proyectoBd.categoriaClase = proyecto.categoriaClase;
+    
+    if(req.file){
+        const path = __dirname + `/../public/img/portfolio/${proyectoBd.urlImagen}`;
+        fs.unlink(path, (err) => {if(err)console.log(err)});
+        proyectoBd.urlImagen = req.file.filename;
+    }
+    
+    await proyectoBd.save();
+    
     res.redirect('/proyectos');
 
 }
