@@ -11,7 +11,7 @@ let transporter = nodemailer.createTransport({
 
   exports.sendMail = async (req, res) => {
     const email = req.body;
-    console.log(email);
+
     const html = `
     <p>Nombre: ${email.name}</p>
     <p>Email: ${email.email}</p>
@@ -27,7 +27,7 @@ let transporter = nodemailer.createTransport({
       text: 'Texto de la consulta',
       html
     });
-    console.log(info.messageId);
+
 
     if(info.messageId){
       res.status(200).json({status: 'OK'});

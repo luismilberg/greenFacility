@@ -111,11 +111,11 @@ module.exports = () => {
         serviciosController.borrarServicio);
         
     router.get('/servicios/editar/:id', 
-        // authController.verificarUsuario, 
+        authController.verificarUsuario, 
         serviciosController.editarServicio);
         
     router.post('/servicios/editar/:id', 
-        // authController.verificarUsuario, 
+        authController.verificarUsuario, 
         serviciosController.upload.single('urlImagen'),
         serviciosController.guardarServicioEditado);
 

@@ -13,7 +13,6 @@ exports.nuevaCategoria = async (req, res) => {
     const categoriaGuardar = new Categorias(categoria);
     await categoriaGuardar.save();
 
-    console.log('Categoria Guardada');
     
     res.redirect('/categorias');
 }

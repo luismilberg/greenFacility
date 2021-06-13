@@ -65,6 +65,11 @@ exports.guardarProyecto = async (req,res) => {
 // Borrado de proyectos
 exports.borrarProyecto = async (req,res) => {
     const id = req.params.id;
+    
+    const {urlImagen} = await Proyectos.findById(id);
+    const pathBorrar = __dirname + `/../public/img/portfolio/${urlImagen}`;
+    fs.unlink(pathBorrar, err => {if(err)console.log(err)});    
+
     await Proyectos.findByIdAndDelete(id);
     res.redirect('/proyectos');
 }

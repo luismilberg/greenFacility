@@ -19,7 +19,6 @@ exports.upload = multer({
 
 exports.listadoServicios = async (req, res, next) => {
   const servicios = await Servicios.find().lean();
-  console.log(servicios);
   res.render("servicios", {servicios});
 };
 
@@ -33,7 +32,6 @@ exports.guardarServicio = async (req, res) => {
   const servicioGuardar = new Servicios(servicio);
 
   await servicioGuardar.save();
-  console.log("Servicio Guardado");
   res.redirect("/servicios");
 };
 
@@ -66,6 +64,11 @@ exports.guardarServicioEditado = async (req, res) => {
 // Eliminar Servicio
 exports.borrarServicio = async (req, res) => {
   const id = req.params.id;
+
+  const {urlImagen} = await Servicios.findById(id);
+  const pathBorrar = __dirname + `/../public/img/services/${urlImagen}`;
+  fs.unlink(pathBorrar, err => {if(err)console.log(err)});
+
   await Servicios.findByIdAndDelete(id);
   res.redirect('/servicios');
 }
