@@ -69,6 +69,10 @@ exports.home = async (req,res) => {
 
     // Categorias
     const categorias = await Categoria.find().lean();
+
+    let whatsapp = datosEmpresa.infoContactoTelefono.replace(' ', ''); //quitar espacios
+    whatsapp = whatsapp.replace('+54',''); //quitar código de país en caso de que lo tenga
+    whatsapp = `+54${whatsapp}`; //agregar código de país
  
 
     info = {
@@ -91,7 +95,8 @@ exports.home = async (req,res) => {
             },
             infoContacto:{
                 telefono: datosEmpresa.infoContactoTelefono,
-                email: datosEmpresa.infoContactoEmail
+                email: datosEmpresa.infoContactoEmail,
+                whatsapp
             },
             redes:{
                 facebook: datosEmpresa.redesFacebook,
